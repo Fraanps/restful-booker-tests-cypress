@@ -1,0 +1,14 @@
+{
+  "name": "restful-booker-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^14.2.0",
+    "cypress-plugin-api": "^2.11.2",
+    "eslint-plugin-cypress": "^4.2.0"
+  }
+}

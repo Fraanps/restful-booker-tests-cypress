@@ -1,0 +1,20 @@
+# webstorm
+.idea/
+
+#dependencias do node.js
+node_modules/
+package-lock.json
+
+# caches do cypress
+.cache/
+api-testing-automation.iml
+
+# videos e screenshots dos testes
+cypress/videos
+cypress/screenshots
+cypress/downloads
+fixtures/
+
+# arquivos de ambiente
+.env
+.env.local
