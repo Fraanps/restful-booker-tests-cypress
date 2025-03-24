@@ -17,7 +17,7 @@ describe('Test Suit - Auth API Testing', () => {
     });
   });
 
-  it.only('POST credentials to auth endpoint with success - 2ª version', () => {
+  it('POST credentials to auth endpoint with success - 2ª version', () => {
 
     let body = {
       "username": "admin",
@@ -29,12 +29,9 @@ describe('Test Suit - Auth API Testing', () => {
         //debugger;
         expect(response.status).to.eq(200);
         expect(response.body).to.have.property('token').and.to.be.a('string');
-        cy.pause()
+        //cy.pause()
         expect(response.body).not.to.be.empty;
-      });
+      })//.debug();
   });
-
-
-
 
 });

@@ -37,7 +37,17 @@ Cypress.Commands.add('postRequest', (endpoint, headers = {}, body = {}, qs = {})
   });
 });
 
-
+Cypress.Commands.add('postBooking', (bookingData) => {
+  return cy.request({
+    method: 'POST',
+    url: '/booking',
+    body: bookingData
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+    expect(response.body).to.have.property('bookingid');
+    return response.body.bookingid;
+  });
+});
 
 
 

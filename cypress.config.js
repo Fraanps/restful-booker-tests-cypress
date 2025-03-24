@@ -8,10 +8,7 @@ module.exports = defineConfig({
     env: {
       requestMode: true,
       auth_url: '/auth',
-      body: {
-        username: "admin",
-        password: "password123"
-      }
+      booking_url: '/booking'
 
     }
   },
