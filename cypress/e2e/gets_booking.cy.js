@@ -1,4 +1,4 @@
-describe('Test Suit - Booking API Testing', () => {
+describe('Test Suit - Booking API Testing - GETs', () => {
   it('Get all booking id', () => {
     cy.request({
       method: 'GET',
@@ -99,6 +99,5 @@ describe('Test Suit - Booking API Testing', () => {
       });
     });
   });
-
 
 });

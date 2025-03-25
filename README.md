@@ -41,7 +41,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 📂 projeto-api-tests
 ├── 📂 cypress
 │   ├── 📂 e2e
-│   │   ├── booking.cy.js    # Testes para reservas
+│   │   ├── gets_booking.cy.js    # Testes para reservas
 │   │   ├── auth.cy.js       # Testes de autenticação
 │   ├── 📂 support
 │   │   ├── commands.js      # Comandos customizados
