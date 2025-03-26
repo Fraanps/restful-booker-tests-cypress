@@ -1,17 +1,13 @@
+let headers = {};
+
+
 describe('Test Suit - Booking API Testing - PUT | PATCH', () => {
 
   beforeEach(() => {
-    cy.request({
-      method: 'POST',
-      url: '/auth',
-      headers: {'Content-type': 'application/json'},
-      body: {
-        "username": "admin",
-        "password": "password123",
-      }
-    }).then((response) => {
-      cy.wrap(response.body.token).as('token');
-    });
+    cy.getToken("admin", "password123").as('token');
+
+    cy.fixture('booking/bookingPost.json').as('newBooking')
+    cy.fixture('booking/bookingPut.json').as('updateBooking')
   });
 
 
@@ -109,5 +105,29 @@ describe('Test Suit - Booking API Testing - PUT | PATCH', () => {
 
   });
 
+  it('Update booking by id without authorization', () => {
+
+    // cy.fixture('booking/bookingPost.json').as('newBooking');
+    // cy.fixture('booking/bookingPut.json').as('updateBooking');
+    headers = {
+      'Accept': 'application/json',
+      'Content-type': 'application/json',
+    };
+
+    cy.get('@newBooking').then((newBooking) => {
+      cy.postRequest('/booking', {'Content-type': 'application/json'}, newBooking)
+        .then((response) => {
+          cy.get('@updateBooking').then((updateBooking) => {
+            cy.putRequest('/booking/' + response.body.bookingid, headers, updateBooking)
+              .then((response) => {
+                expect(response.status).to.eq(403)
+                expect(response.headers).to.have.property('content-type', 'text/plain; charset=utf-8')
+                expect(response.body).to.be.an('string');
+              });
+          });
+
+        });
+    });
+  });
 
 });

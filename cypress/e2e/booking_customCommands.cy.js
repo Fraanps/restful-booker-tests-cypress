@@ -60,10 +60,7 @@ describe('Test Suit - Booking API Testing with custom commands', () => {
           .then((response) => {
             expect(response.status).to.eq(200);
             expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8');
-            expect(response.body).to.be.an('object');
-            // expect(response.body.booking).to.have.property('firstname', 'Francisco').and.to.be.a('string')
-            // expect(response.body.booking).to.have.property('lastname', 'Doca').and.to.be.a('string')
-            expect(response.body).to.have.property('totalprice').and.to.be.a('number')
+            expect(response.body).to.be.an('object');expect(response.body).to.have.property('totalprice').and.to.be.a('number')
             expect(response.body).to.have.property('depositpaid').and.to.be.a('boolean')
             expect(response.body).to.have.property('bookingdates').and.to.be.a('object')
             expect(response.body.bookingdates).to.have.property('checkin').and.to.be.a('string')

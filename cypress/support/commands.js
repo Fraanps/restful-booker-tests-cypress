@@ -50,6 +50,21 @@ Cypress.Commands.add('getRequest', (endpoint, headers = {}, body = {}, qs = {}) 
   });
 });
 
+Cypress.Commands.add('putRequest', (endpoint, headers = {}, body = {}, qs = {}) => {
+  cy.request({
+    method: 'PUT',
+    url: endpoint,
+    headers: headers,
+    qs: qs,
+    body: body,
+    failOnStatusCode: false
+  }).then(response => {
+    return response;
+  });
+});
+
+
+
 Cypress.Commands.add('postBooking', (bookingData) => {
   return cy.request({
     method: 'POST',
@@ -61,6 +76,22 @@ Cypress.Commands.add('postBooking', (bookingData) => {
     return response.body.bookingid;
   });
 });
+
+
+Cypress.Commands.add('getToken', (bookingData) => {
+  cy.request({
+      method: 'POST',
+      url: '/auth',
+      headers: {'Content-type': 'application/json'},
+      body: {
+        "username": "admin",
+        "password": "password123",
+      }
+    }).then((response) => {
+      cy.wrap(response.body.token).as('token');
+    });
+  });
+
 
 
 
