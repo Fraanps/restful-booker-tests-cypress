@@ -8,6 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "cypress": "^14.2.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-plugin-api": "^2.11.2",
     "eslint-plugin-cypress": "^4.2.0"
   }

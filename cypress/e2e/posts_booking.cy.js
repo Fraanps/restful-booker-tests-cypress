@@ -1,6 +1,6 @@
 describe('Test Suit - Booking API Testing - POSTs', () => {
 
-  it.only('Create a new booking with success', () => {
+  it('Create a new booking with success', () => {
     cy.request({
       method: 'POST',
       url: '/booking/',
@@ -53,7 +53,7 @@ describe('Test Suit - Booking API Testing - POSTs', () => {
     });
   });
 
-  it.only('Create a new booking with success - Alternativa 2', () => {
+  it('Create a new booking with success - Alternativa 2', () => {
     cy.request({
       method: 'POST',
       url: '/booking/',

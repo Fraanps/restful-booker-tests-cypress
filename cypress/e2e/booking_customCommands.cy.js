@@ -39,7 +39,7 @@ describe('Test Suit - Booking API Testing with custom commands', () => {
     });
   });
 
-  it.only('4 - Create a new booking with success return status code 200', () => {
+  it('4 - Create a new booking with success return status code 200', () => {
     cy.fixture('booking/bookingPost.json').then((newBooking) => {
       cy.postRequest('/booking', {'Content-type': 'application/json'}, newBooking).then((response) => {
         expect(response.status).to.eq(200);
