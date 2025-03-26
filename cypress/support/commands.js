@@ -37,6 +37,19 @@ Cypress.Commands.add('postRequest', (endpoint, headers = {}, body = {}, qs = {})
   });
 });
 
+Cypress.Commands.add('getRequest', (endpoint, headers = {}, body = {}, qs = {}) => {
+  cy.request({
+    method: 'GET',
+    url: endpoint,
+    headers: headers,
+    qs: qs,
+    body: body,
+    failOnStatusCode: false
+  }).then(response => {
+    return response;
+  });
+});
+
 Cypress.Commands.add('postBooking', (bookingData) => {
   return cy.request({
     method: 'POST',
@@ -48,6 +61,10 @@ Cypress.Commands.add('postBooking', (bookingData) => {
     return response.body.bookingid;
   });
 });
+
+
+
+
 
 
 
